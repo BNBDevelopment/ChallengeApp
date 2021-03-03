@@ -3,7 +3,7 @@ from flask import render_template
 from flask import request
 
 from flask import Flask, redirect, url_for, request
-app = Flask(__name__, template_folder='')
+app = Flask(__name__, template_folder='\com\company\resources\web')
 
 
 @app.route('/bet',methods = ['POST', 'GET'])

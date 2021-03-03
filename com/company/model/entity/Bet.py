@@ -2,6 +2,8 @@ import collections
 import time
 from enum import Enum
 
+from com.company.model.entity.DBObjectInterface import DBObjectInterface
+
 
 class BetArbitrationType(Enum):
     GROUP = 1  # A selected group votes on who the winner is
@@ -11,8 +13,7 @@ class BetArbitrationType(Enum):
 
 
 
-class Bet:
-    betId = None
+class Bet(DBObjectInterface):
     revisionNumber = None
     receiverId = None
     senderId = None
@@ -26,8 +27,7 @@ class Bet:
 
 
     def __init__(self, receiver, sender, amount):
-        self.betId = IdGenerator.newBet()
-        self.revisionNumber = 0
+        self.id = IdGenerator.generateId() #Should be dependencyInjected
         self.receiverId = receiver
         self.senderId = sender
         self.amount = amount

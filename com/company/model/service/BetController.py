@@ -1,8 +1,11 @@
-import Bet
+from com.company.model.entity import Bet
+from com.company.model.service import DBConnector
+
 
 class BetConnector:
 
     def __init__(self):
+        # Should be dependencyInjected
         dbConnector = DBConnector()
 
     def placeBet(self, betCreator, betRecipient, amount):
